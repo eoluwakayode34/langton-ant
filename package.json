@@ -1,0 +1,19 @@
+{
+  "name": "langton-ant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest":{
+    "testEnvironment": "jsdom"
+},
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "jest": "^27.5.1"
+  }
+}
