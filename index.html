@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        canvas {
-            border: 2px solid red;
-        }
-    </style>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="Langton's ant is a two-dimensional universal Turing machine with a very simple set of rules but complex emergent behavior. It was invented by Chris Langton in 1986 and runs on a square lattice of black and white cells.[1] The universality of Langton's ant was proven in 2000.[2] The idea has been generalized in several different ways, such as turmites which add more colors and more states." />
+    <link rel="stylesheet" href="./style.css">
+    <title>langton-ant</title>
 </head>
 <body>
-    <canvas id="grid" width="500" height="500"></canvas>
-<span id="moves"></span>
+    <div class="container">
 
-<h2>langton-ant</h2>
+        <h2 class="langton-title">langton ant</h2>
+
+        <div class="langton-container">
+
+            <canvas id="grid" width="500" height="500"></canvas>
+        </div>
+
+        <div class="langton-button-container">
+            <button class="button-30" id="start-langton" role="button">START</button>
+            <button class="button-30" id="end-langton"  role="button">END</button>
+        </div>
+    </div>
+
 
 
 <script src="./index.js"></script>

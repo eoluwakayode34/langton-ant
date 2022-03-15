@@ -1,11 +1,36 @@
-window.onload = function() {
+let startButton = document.getElementById("start-langton")
+let endButton = document.getElementById("end-langton")
+
+
+// start langton
+ function startLangton() {
     canvas = document.getElementById('grid');
     ctx = canvas.getContext('2d');
     const grid = new Grid(canvas.width, canvas.height);
     grid.init();
     setInterval(moveAnt, 1000/13, grid);
+
+
+   
   }
+
+// add event listener to langton
+  startButton.addEventListener("click", startLangton);
+
   
+  // end langton
+  function endLangton() {
+    location.reload();
+  
+  }
+
+
+ 
+  endButton.addEventListener("click", endLangton);
+
+
+ 
+
   const ANTUP = 0;
   const ANTRIGHT = 1;
   const ANTDOWN = 2;
@@ -21,7 +46,6 @@ window.onload = function() {
       switch (this.direction) {
         case ANTUP:
           this.x = ((this.x - 1) + width) % width;
-          console.log(this.x)
           break;
         case ANTRIGHT:
           this.y = ((this.y + 1) + height) % height;
@@ -84,6 +108,8 @@ window.onload = function() {
     move () {
       for (let i = 0; i < 100; i++) {
         let cell = this.cells[this.ant.x][this.ant.y];
+        
+        // At white space ==, ant turn clockwise, flip the color of the square, move forward one unit
         if (cell.isAlive) {
           cell.alive = false;
           ctx.fillStyle = 'white';
@@ -91,6 +117,8 @@ window.onload = function() {
           this.ant.rotateRight();
           this.ant.moveForward(this.width, this.height);
         }
+
+        //at black space== ant turn counter-clockwise, flip the color of the square, move forward one unit
         else {
           cell.alive = true;
           ctx.fillStyle = 'black';
@@ -98,6 +126,9 @@ window.onload = function() {
           this.ant.rotateLeft();
           this.ant.moveForward(this.width, this.height);
         }
+
+        // general ant movement in color red
+
         ctx.fillStyle = 'red';
         ctx.fillRect(this.ant.x, this.ant.y, 1, 1);
         this.moves++;
@@ -109,6 +140,8 @@ window.onload = function() {
     grid.move();
     ctx.stroke();
     var moves = document.getElementById('moves');
+
+    // number of moves made by ant
     moves.innerHTML = grid.moves;
   }
 
